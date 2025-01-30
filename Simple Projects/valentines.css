@@ -1,0 +1,89 @@
+body {
+    background-color: pink;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#yesButton {
+    background-color: rgb(37, 183, 27);
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    width: 10vh;
+}
+
+#noButton {
+    background-color: red;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 10vh;
+}
+
+#question {
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    font-size: larger;
+    font-style: italic;
+    font-weight: 900;
+}
+
+.hearts {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(244, 1, 74);
+    transform: rotate(45deg); /* Rotation to make diamond */
+    z-index: -1;
+    margin: 30px;
+    /* We need this for the heart shape */
+    display: block;
+    top: 0;
+    left: 0;
+    /*apply animation*/
+    animation: float 5s ease-in-out infinite
+}
+
+.hearts::before,
+.hearts::after {
+    content: "";
+    position: absolute;
+    width: 20px; 
+    height: 20px;
+    background-color: rgb(244, 1, 74);
+    border-radius: 50%;
+}
+
+/* Position the left half of the heart */
+.hearts::before {
+    top: -10px;
+    left: 0;
+}
+
+/* Position the right half of the heart */
+.hearts::after {
+    top: 0;
+    left: -10px;
+}
+
+/* Define the circular animation of the heart */
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);  /* Start at the center, no rotation */
+    }
+    25% {
+        transform: translate(50px, -50px) rotate(90deg);  /* Move to top right and rotate */
+    }
+    50% {
+        transform: translate(0, -100px) rotate(180deg);  /* Move upwards and rotate */
+    }
+    75% {
+        transform: translate(-50px, -50px) rotate(270deg);  /* Move to top left and rotate */
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);  /* Return to starting point with full rotation */
+    }
+}
+
