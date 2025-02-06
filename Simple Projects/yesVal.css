@@ -1,54 +1,64 @@
-body {
+body{
     background-color: pink;
     height: 100%;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
-#yesButton {
+#heart {
     position: absolute;
-    top: 45%;
+    width: 200px;
+    height: 200px;
+    top: 40%;
     left: 40%;
-    width: 10vh;
+    background-color: rgb(244, 1, 74);
+    transform: rotate(45deg);
+    animation: heartbeat 1s infinite
 }
 
-#noButton {
+#heart::after, 
+#heart::before {
+    content: "";
     position: absolute;
-    top: 45%;
-    left: 50%;
-    width: 10vh;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: rgb(244, 1, 74); 
 }
 
-button {
-    border: none;
-    text-align: center;
-    background-color: #FF6F61; /* Soft coral */
-    color: white; /* White text */
-    padding: 12px 25px;
-    cursor: pointer;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+#heart::before {
+    top: -100px; 
+    left: 0;
 }
 
-button:hover {
-    background-color: #F94F41; /* Slightly darker coral on hover */
+#heart::after {
+    top: 0;
+    left: -100px;
 }
 
-button:active {
-    background-color: #D94B3B; /* Even darker coral when clicked */
-    transform: scale(0.95); /* Shrink when clicked */
-}
-
-#question {
+#note{
     position: absolute;
-    top: 30%;
+    width: 400px;
+    height: 400px;
+    top: 20%;
     left: 35%;
-    font-size: xx-large;
-    font-style: italic;
-    font-weight: 900;
+    background-color: aliceblue;
+    display: none;
 }
 
-.hearts {
+@keyframes heartbeat{
+    0%{
+        transform: scale(1) rotate(45deg);
+    }
+    50%{
+        transform: scale(1.1) rotate(45deg);
+    }
+    100%{
+        transform: scale(1) rotate(45deg);
+    }
+}
+
+.corazon {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -57,15 +67,14 @@ button:active {
     z-index: -1;
     margin: 30px;
     /* We need this for the heart shape */
-    display: block;
     top: 0;
     left: 0;
     /*apply animation*/
     animation: float 5s ease-in-out infinite
 }
 
-.hearts::before,
-.hearts::after {
+.corazon::before,
+.corazon::after {
     content: "";
     position: absolute;
     width: 20px; 
@@ -75,13 +84,13 @@ button:active {
 }
 
 /* Position the left half of the heart */
-.hearts::before {
+.corazon::before {
     top: -10px;
     left: 0;
 }
 
 /* Position the right half of the heart */
-.hearts::after {
+.corazon::after {
     top: 0;
     left: -10px;
 }
@@ -104,4 +113,3 @@ button:active {
         transform: translate(0, 0) rotate(360deg);  /* Return to starting point with full rotation */
     }
 }
-
